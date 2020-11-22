@@ -1,5 +1,6 @@
 Flask==1.1.1        
 Flask-RESTful==0.3.8
+Flask-Cors==3.0.9
 nltk==3.5
 tweepy==3.9.0
 gunicorn==19.9.0
