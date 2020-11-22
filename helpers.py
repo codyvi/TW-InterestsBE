@@ -1,8 +1,5 @@
 import json
-import logging
 import nltk
-import operator
-import pickle
 import re
 
 from nltk.corpus import stopwords 
