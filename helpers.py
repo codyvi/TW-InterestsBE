@@ -3,6 +3,9 @@ import nltk
 import re
 
 from nltk.corpus import stopwords 
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize 
 
@@ -104,13 +107,12 @@ def getCategory(tweet):
         scores['social'] += global_dict['social'][word] if word in global_dict['social'] else 0
         scores['sports'] += global_dict['sports'][word] if word in global_dict['sports'] else 0
 
-
     for k, v in scores.items():
         scores[k] = v/len(tweet_arr)
 
-
     max_category = max(scores, key=scores.get)
     if scores[max_category] < 0.07:
+        #print("Failed to reach threshold for category {}".format(max_category), tweet)
         return ("None", 0.0)
     else:
         return (max_category, scores[max_category])
