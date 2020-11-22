@@ -13,6 +13,10 @@ AuthKey4 = os.environ.get("KEY4")
 
 main.SetupApi(AuthKey1, AuthKey2, AuthKey3, AuthKey4)
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return {"API Running"}
+
 class Similarity(Resource):
     def get(self, user1, user2):
         sim_cats = main.GetSimilarity(user1, user2)
